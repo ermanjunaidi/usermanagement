@@ -12,7 +12,7 @@ export default function LoginPage() {
     const [canSubmit, setCanSubmit] = useState(false)
 
     useEffect(() => {
-        const newErrors: any = {}
+        const newErrors: { [key: string]: string } = {}
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             newErrors.email = 'Format email tidak valid'
@@ -31,6 +31,7 @@ export default function LoginPage() {
             Object.keys(newErrors).length === 0 && email && password && confirm
         )
     }, [email, password, confirm])
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -93,8 +94,8 @@ export default function LoginPage() {
                     type="submit"
                     disabled={!canSubmit}
                     className={`w-full py-2 rounded text-white ${canSubmit
-                            ? 'bg-blue-600 hover:bg-blue-700'
-                            : 'bg-gray-400'
+                        ? 'bg-blue-600 hover:bg-blue-700'
+                        : 'bg-gray-400'
                         }`}
                 >
                     Submit

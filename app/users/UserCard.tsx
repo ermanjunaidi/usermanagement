@@ -1,6 +1,15 @@
 import Image from 'next/image'
 
-export default function UserCard({ user }: { user: any }) {
+type User = {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    image?: string
+    isNew?: boolean
+}
+
+export default function UserCard({ user }: { user: User }) {
     return (
         <div className="border p-4 rounded shadow-sm flex items-center gap-4">
             <Image
