@@ -28,8 +28,9 @@ export default function LoginPage() {
 
         setErrors(newErrors)
         setCanSubmit(
-            Object.keys(newErrors).length === 0 && email && password && confirm
+            Boolean(Object.keys(newErrors).length === 0 && email && password && confirm)
         )
+
     }, [email, password, confirm])
 
 
