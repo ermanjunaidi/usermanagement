@@ -1,11 +1,10 @@
 import Image from 'next/image'
-import users from '@/public/users.jpg'
 
 export default function UserCard({ user }: { user: any }) {
     return (
         <div className="border p-4 rounded shadow-sm flex items-center gap-4">
             <Image
-                src={users}
+                src={user.image || 'dummyjson.com'}
                 alt={user.firstName}
                 width={80}
                 height={80}
